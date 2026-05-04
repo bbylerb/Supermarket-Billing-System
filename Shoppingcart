@@ -1,0 +1,60 @@
+// Singly Linked List — stores all items in cart
+public class ShoppingCart {
+    private Node head;
+    private int size;
+
+    public ShoppingCart() {
+        head = null;
+        size = 0;
+    }
+
+    public void addItem(Item item) {
+        Node newNode = new Node(item);
+        if (head == null) {
+            head = newNode;
+        } else {
+            Node current = head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = newNode;
+        }
+        size++;
+    }
+
+    public void removeItem(String name) {
+        if (head == null) return;
+        if (head.item.getName().equalsIgnoreCase(name)) {
+            head = head.next;
+            size--;
+            return;
+        }
+        Node current = head;
+        while (current.next != null) {
+            if (current.next.item.getName().equalsIgnoreCase(name)) {
+                current.next = current.next.next;
+                size--;
+                return;
+            }
+            current = current.next;
+        }
+    }
+
+    public void displayCart() {
+        if (head == null) {
+            System.out.println("  Cart is empty.");
+            return;
+        }
+        Node current = head;
+        int i = 1;
+        while (current != null) {
+            System.out.println("  " + i + ". " + current.item);
+            current = current.next;
+            i++;
+        }
+    }
+
+    public boolean isEmpty() { return head == null; }
+    public int getSize() { return size; }
+    public Node getHead() { return head; }
+}
