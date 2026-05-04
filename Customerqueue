@@ -1,0 +1,49 @@
+// Queue — manages customers waiting to checkout (FIFO)
+public class CustomerQueue {
+    private String[] queue;
+    private int front, rear, size;
+    private static final int MAX_SIZE = 50;
+
+    public CustomerQueue() {
+        queue = new String[MAX_SIZE];
+        front = 0;
+        rear = -1;
+        size = 0;
+    }
+
+    public void enqueue(String customerName) {
+        if (size < MAX_SIZE) {
+            rear = (rear + 1) % MAX_SIZE;
+            queue[rear] = customerName;
+            size++;
+            System.out.println("  " + customerName + " joined the checkout queue.");
+        }
+    }
+
+    public String dequeue() {
+        if (isEmpty()) return null;
+        String customer = queue[front];
+        front = (front + 1) % MAX_SIZE;
+        size--;
+        return customer;
+    }
+
+    public String peek() {
+        if (isEmpty()) return null;
+        return queue[front];
+    }
+
+    public boolean isEmpty() { return size == 0; }
+    public int getSize() { return size; }
+
+    public void displayQueue() {
+        if (isEmpty()) {
+            System.out.println("  No customers in queue.");
+            return;
+        }
+        System.out.println("  Customers waiting: " + size);
+        for (int i = 0; i < size; i++) {
+            System.out.println("  " + (i + 1) + ". " + queue[(front + i) % MAX_SIZE]);
+        }
+    }
+}
