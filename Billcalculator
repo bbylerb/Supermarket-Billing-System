@@ -1,0 +1,35 @@
+// Recursive method — traverses SLL to calculate total price
+public class BillCalculator {
+    private static final double VAT_RATE = 0.07;
+
+    // Recursive: sum prices by walking through linked list nodes
+    public static double calculateTotal(Node node) {
+        if (node == null) return 0;
+        return node.item.getTotalPrice() + calculateTotal(node.next);
+    }
+
+    public static double calculateVAT(double subtotal) {
+        return subtotal * VAT_RATE;
+    }
+
+    public static void printReceipt(String customerName, ShoppingCart cart) {
+        System.out.println("\n  ================================");
+        System.out.println("         SUPERMARKET RECEIPT");
+        System.out.println("  ================================");
+        System.out.println("  Customer : " + customerName);
+        System.out.println("  --------------------------------");
+        cart.displayCart();
+        System.out.println("  --------------------------------");
+
+        double subtotal = calculateTotal(cart.getHead());
+        double vat = calculateVAT(subtotal);
+        double total = subtotal + vat;
+
+        System.out.printf("  Subtotal :  $%.2f%n", subtotal);
+        System.out.printf("  VAT 7%%   :  $%.2f%n", vat);
+        System.out.printf("  TOTAL    :  $%.2f%n", total);
+        System.out.println("  ================================");
+        System.out.println("       Thank you for shopping!");
+        System.out.println("  ================================\n");
+    }
+}
