@@ -73,10 +73,15 @@ public class Main {
     }
 
     static void joinQueue() {
-        System.out.print("  Enter your name: ");
-        String name = scanner.nextLine();
-        customerQueue.enqueue(name);
+    if (cart.isEmpty()) {
+        System.out.println("  Your cart is empty. Add items first.");
+        return;
     }
+    System.out.print("  Enter your name: ");
+    String name = scanner.nextLine();
+    customerQueue.enqueue(name);
+    System.out.println("  " + name + " joined the queue.");
+}
 
     static void callNextCustomer() {
         if (customerQueue.isEmpty()) {
