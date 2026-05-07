@@ -6,10 +6,10 @@ built as a Group Project for Data Structures & Algorithms course (DSA 2025).
 ## Group Members
 | No. | Name | Responsibility |
 |-----|------|----------------|
-| 1 | [Name] | Item.java, Node.java |
-| 2 | [Name] | ShoppingCart.java (SLL) |
-| 3 | [Name] | UndoStack.java (Stack) |
-| 4 | [Name] | CustomerQueue.java (Queue) + BillCalculator.java (Recursive) + Main.java |
+| 1 | Rapkhwan Supawan | Item.java, Node.java |
+| 2 | Suthada Sirinaphaphen | ShoppingCart.java (SLL) |
+| 3 | Patchaporn Chuangchotchanalai | UndoStack.java (Stack) |
+| 4 | Sayamol Aenpanya | CustomerQueue.java (Queue) + BillCalculator.java (Recursive) + Main.java |
  
 ---
  
@@ -32,16 +32,6 @@ built as a Group Project for Data Structures & Algorithms course (DSA 2025).
 - Join checkout queue (Queue)
 - Call next customer and print receipt (Queue + Recursive)
 - Auto-calculate subtotal, VAT 7%, and total
----
- 
-## How to Run
- 
-```bash
-cd src
-javac *.java
-java Main
-```
- 
 ---
  
 ## Project Structure
